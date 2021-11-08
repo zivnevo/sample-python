@@ -27,8 +27,9 @@ class Boards:
         if board_str in self.cache:
             return self.cache[board_str]
 
-        # A board is winning for the 1st player, if it has a child board which is loosing for *its* 1st player
-        is_winning = not all(self.is_first_player_winning(brd) for brd in self.get_board_children(board))
+        # 1st player wins the board, if it has a child board which is loosing for *its* 1st player
+        children = self.get_board_children(board)
+        is_winning = not all(self.is_first_player_winning(brd) for brd in children)
         self.cache[board_str] = is_winning
         return is_winning
 
