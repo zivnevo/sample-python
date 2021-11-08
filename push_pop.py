@@ -16,10 +16,10 @@ class Boards:
         :return list: A list of children boards
         """
         children = []
-        for line in range(0, len(board)):
-            for pebbles_left in range(0, board[line]):
+        for line_num, line in enumerate(board):
+            for pebbles_left in range(0, line):
                 new_child = board.copy()
-                new_child[line] = pebbles_left
+                new_child[line_num] = pebbles_left
                 new_child.sort()
                 if new_child not in children:
                     children.append(new_child)
