@@ -1,7 +1,3 @@
-"""
-This code answers the question of who wins a given push-pop game.
-"""
-
 class Boards:
     """
     This class represents a board configuration, namely the number of pebbles left in each line
