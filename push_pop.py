@@ -1,5 +1,5 @@
 """
-This code answers the question of who wins a given push-pop game.
+This code answers the question of who wins a given push-pop game
 """
 
 class Boards:
