@@ -1,0 +1,23 @@
+name: flake8 Lint
+
+on: [push, pull_request]
+
+jobs:
+  flake8-lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - name: Set up Python environment
+        uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435
+        with:
+          python-version: "3.11"
+      - name: flake8 Lint
+        uses: py-actions/flake8@2014ef764424fd7699d615323c17836092bec9b9
+        with:
+          ignore: "F401"
+          exclude: "src/ignoreme.py"
+          max-line-length: "100"
+          path: "src"
+          plugins: "flake8-bugbear==22.1.11 flake8-black"
